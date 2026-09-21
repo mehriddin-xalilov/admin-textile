@@ -1,0 +1,59 @@
+.textile-upload-drag-dark{
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px dashed #303030;
+
+}
+.textile-upload-drag {
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px dashed #d9d9d9;
+}
+.textile-upload {
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+}
+
+
+
+.textile-upload-drag:hover, .textile-upload-drag-dark:hover {
+    border-color: #1668dc;
+}
+
+.textile-upload-btn {
+    display: table;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.textile-upload-drag-icon {
+    margin-bottom: 16px;
+}
+
+.textile-upload-text {
+    margin: 0 0 4px;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.textile-upload-hint {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 14px;
+}
+
+.textile-upload-icon {
+    color: #1668dc;
+    font-size: 48px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,390 @@
+body.dark {
+  --ck-color-base-background:           #141414;
+  --ck-color-base-foreground:           #141414;
+  --ck-color-base-text:                 #e2e8f0;
+  --ck-color-base-border:               #424242;
+  --ck-color-base-action:               #2563eb;
+  --ck-color-base-focus:                #3b82f6;
+  --ck-color-base-error:                #ef4444;
+
+  /* Toolbar */
+  --ck-color-toolbar-background:        #141414;
+  --ck-color-toolbar-border:            #424242;
+
+  /* Buttons */
+  --ck-color-button-default-background:       #141414;
+  --ck-color-button-default-hover-background: #2e2f45;
+  --ck-color-button-default-active-background:#313349;
+  --ck-color-button-default-active-shadow:    transparent;
+  --ck-color-button-default-disabled-background: #141414;
+  --ck-color-button-on-background:            #2e3a5c;
+  --ck-color-button-on-hover-background:      #354470;
+  --ck-color-button-on-active-background:     #3a4d80;
+  --ck-color-button-on-active-shadow:         transparent;
+  --ck-color-button-on-disabled-background:   #2e3a5c;
+  --ck-color-button-action-background:        #2563eb;
+  --ck-color-button-action-hover-background:  #1d4ed8;
+  --ck-color-button-action-text:              #fff;
+  --ck-color-button-save:                     #22c55e;
+  --ck-color-button-cancel:                   #ef4444;
+
+  /* Dropdown */
+  --ck-color-dropdown-panel-background:       #141414;
+  --ck-color-dropdown-panel-border:           #424242;
+
+  /* Panel */
+  --ck-color-panel-background:                #141414;
+  --ck-color-panel-border:                    #424242;
+
+  /* List */
+  --ck-color-list-background:                 #141414;
+  --ck-color-list-button-hover-background:    #2e2f45;
+  --ck-color-list-button-on-background:       #2e3a5c;
+  --ck-color-list-button-on-background-focus: #354470;
+  --ck-color-list-button-on-text:             #93c5fd;
+
+  /* Input */
+  --ck-color-input-background:                #141414;
+  --ck-color-input-border:                    #424242;
+  --ck-color-input-text:                      #e2e8f0;
+  --ck-color-input-disabled-background:       #2a2b3d;
+  --ck-color-input-disabled-border:           #424242;
+  --ck-color-input-disabled-text:             #6b7280;
+
+  /* Focus */
+  --ck-color-focus-border:                    #3b82f6;
+  --ck-color-focus-outer-shadow:              rgba(59, 130, 246, 0.15);
+  --ck-color-focus-error-border:              #ef4444;
+  --ck-color-focus-error-shadow:              rgba(239, 68, 68, 0.15);
+
+  /* Shadow */
+  --ck-color-shadow-drop:                     rgba(0, 0, 0, 0.4);
+  --ck-color-shadow-drop-active:              rgba(0, 0, 0, 0.6);
+  --ck-color-shadow-inner:                    rgba(0, 0, 0, 0.25);
+
+  /* Editor content area */
+  --ck-color-editor-base-text:                #e2e8f0;
+
+  /* Table */
+  --ck-color-table-focused-cell-background:   rgba(59, 130, 246, 0.08);
+
+  /* Widget */
+  --ck-color-widget-blurred-border:           #424242;
+  --ck-color-widget-hover-border:             #3b82f6;
+  --ck-color-widget-editable-focus-background: rgba(59, 130, 246, 0.05);
+
+  /* Code block */
+  --ck-color-code-background:                 #161625;
+  --ck-color-code-background-uncolored:       #161625;
+}
+
+/* Editor content area uchun to'g'ridan-to'g'ri override */
+body.dark .ck.ck-editor__main > .ck-editor__editable {
+  background: #141414 !important;
+  color: #e2e8f0 !important;
+  border-color: #424242 !important;
+}
+
+body.dark .ck.ck-editor__main > .ck-editor__editable.ck-focused {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15) !important;
+}
+
+body.dark .ck.ck-toolbar {
+  background: #141414 !important;
+  border-color: #424242 !important;
+}
+
+body.dark .ck.ck-toolbar .ck.ck-toolbar__separator {
+  background: #424242 !important;
+}
+
+body.dark .ck.ck-button:not(.ck-disabled):hover,
+body.dark a.ck.ck-button:not(.ck-disabled):hover {
+  background: #2e2f45 !important;
+}
+
+body.dark .ck.ck-button.ck-on,
+body.dark a.ck.ck-button.ck-on {
+  background: #2e3a5c !important;
+  color: #93c5fd !important;
+}
+
+body.dark .ck.ck-dropdown__panel {
+  background: #141414 !important;
+  border-color: #424242 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5) !important;
+}
+
+body.dark .ck.ck-list {
+  background: #141414 !important;
+}
+
+body.dark .ck.ck-list__item .ck-button:hover:not(.ck-disabled) {
+  background: #2e2f45 !important;
+}
+
+body.dark .ck.ck-input-text {
+  background: #141414 !important;
+  border-color: #424242 !important;
+  color: #e2e8f0 !important;
+}
+
+body.dark .ck.ck-balloon-panel {
+  background: #141414 !important;
+  border-color: #424242 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5) !important;
+}
+
+body.dark .ck.ck-balloon-panel .ck-color-grid__tile:hover {
+  border-color: #fff !important;
+}
+
+body.dark .ck.ck-label,
+body.dark .ck.ck-button__label {
+  color: #e2e8f0 !important;
+}
+
+body.dark .ck.ck-button  {
+  color: #e2e8f0 !important;
+}
+
+/* Code block */
+body.dark .ck.ck-editor__editable pre {
+  background: #161625 !important;
+  color: #a5b4fc !important;
+  border-color: #424242 !important;
+}
+
+/* Blockquote */
+body.dark .ck.ck-editor__editable blockquote {
+  border-left-color: #3b82f6 !important;
+  color: #94a3b8 !important;
+}
+
+/* Table */
+body.dark .ck.ck-editor__editable .table table td,
+body.dark .ck.ck-editor__editable .table table th {
+  border-color: #424242 !important;
+}
+
+body.dark .ck.ck-editor__editable .table table th {
+  background: #141414 !important;
+}
+
+/* Placeholder */
+body.dark .ck.ck-editor__editable .ck-placeholder::before {
+  color: #6b7280 !important;
+}
+
+.ck-content {
+  max-height: 50vh;
+}
+
+/* ── Math inline formula (inserted via mathlive markup) ── */
+.math-inline {
+  display: inline;
+  vertical-align: middle;
+  line-height: 1;
+  user-select: none;
+  cursor: default;
+  padding: 0 2px;
+}
+.math-inline .ML__latex {
+  display: inline-flex;
+  align-items: center;
+}
+.ck-view-content .math-inline {
+  display: inline;
+  vertical-align: middle;
+}
+
+/* ══ MathLive math-field styling ════════════════════════ */
+
+/* Light mode math-field */
+math-field.math-field-light {
+  --hue:                        220;
+  --_selection-background-color-unfocused: rgba(37, 99, 235, 0.12);
+  caret-color:                  #2563eb;
+}
+
+/* Dark mode math-field */
+math-field.math-field-dark {
+  --hue:                        220;
+  --_selection-background-color-unfocused: rgba(96, 165, 250, 0.18);
+  caret-color:                  #60a5fa;
+}
+
+/* ══ MathLive virtual keyboard (embedded in container) ══ */
+
+/* Inside our container: relative flow, full width */
+.math-keyboard-host {
+  position: relative;
+  width: 100%;
+}
+
+/* When keyboard is teleported into our container */
+.math-keyboard-host .ML__keyboard,
+.math-keyboard-host > div[part="virtual-keyboard"] {
+  position: relative !important;
+  bottom: unset !important;
+  left: unset !important;
+  top: unset !important;
+  right: unset !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  z-index: 1 !important;
+  border-top: none !important;
+}
+
+/* Hide empty keyboard host */
+.math-keyboard-host:empty {
+  display: none;
+}
+
+/* Fallback when not embedded */
+.ML__keyboard {
+  z-index: 3000;
+}
+
+/* ── Light mode keyboard ─────────────────────────────── */
+.ML__keyboard {
+  --keyboard-background:         #f8faff;
+  --keyboard-border:             #d1d5db;
+  --keycap-background:           #ffffff;
+  --keycap-background-hover:     #f0f4ff;
+  --keycap-background-active:    #dbeafe;
+  --keycap-text:                 #1e293b;
+  --keycap-secondary-text:       #64748b;
+  --keycap-border:               #e2e8f0;
+  --keycap-modifier-background:  #f1f5f9;
+  --keycap-modifier-border:      #cbd5e1;
+  border-top: 1px solid #d1d5db;
+}
+
+/* ── Dark mode keyboard ──────────────────────────────── */
+/* DIQQAT: bu selektorga background BERILMAYDI — .ML__keyboard to'liq
+   ekranli konteyner (inset:0), fon berilsa dark rejimda butun sahifani
+   qora qilib yuboradi. Plastinka fonini --keyboard-background beradi. */
+body.dark .ML__keyboard,
+.math-keyboard-host .ML__keyboard.is-dark {
+  --keyboard-background:         #141414;
+  --keyboard-border:             #424242;
+  --keycap-background:           #1e1e2e;
+  --keycap-background-hover:     #2e2f45;
+  --keycap-background-active:    #2e3a5c;
+  --keycap-text:                 #e2e8f0;
+  --keycap-secondary-text:       #94a3b8;
+  --keycap-border:               #424242;
+  --keycap-modifier-background:  #141414;
+  --keycap-modifier-border:      #424242;
+}
+
+/* Faqat konteynerga joylashtirilgan (relative) holatda fon beriladi */
+.math-keyboard-host .ML__keyboard.is-dark {
+  background:                    #141414 !important;
+  border-top: 1px solid #424242 !important;
+}
+
+/* Audio player accent */
+.textile-audio {
+  accent-color: #7c3aed;
+}
+.dark .textile-audio {
+  accent-color: #a78bfa;
+  color-scheme: dark;
+}
+
+/* Read-only view rendering */
+.ck-view-content {
+  color: #1a202c;
+  line-height: 1.75;
+  font-size: 0.9375rem;
+}
+.ck-view-content h1,
+.ck-view-content h2,
+.ck-view-content h3,
+.ck-view-content h4,
+.ck-view-content h5,
+.ck-view-content h6 {
+  font-weight: 700;
+  margin: 1.25em 0 0.5em;
+  line-height: 1.3;
+}
+.ck-view-content h1 { font-size: 1.875rem; }
+.ck-view-content h2 { font-size: 1.5rem; }
+.ck-view-content h3 { font-size: 1.25rem; }
+.ck-view-content p  { margin: 0.75em 0; }
+.ck-view-content ul,
+.ck-view-content ol {
+  padding-left: 1.5rem;
+  margin: 0.75em 0;
+}
+.ck-view-content li { margin: 0.25em 0; }
+.ck-view-content a  { color: #2563eb; text-decoration: underline; }
+.ck-view-content blockquote {
+  border-left: 4px solid #3b82f6;
+  padding: 0.5rem 1rem;
+  margin: 1em 0;
+  color: #4b5563;
+  background: #f8faff;
+  border-radius: 0 8px 8px 0;
+}
+.ck-view-content pre,
+.ck-view-content code {
+  background: #f3f4f6;
+  color: #111827;
+  border-radius: 6px;
+  font-family: 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.875em;
+}
+.ck-view-content pre {
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+.ck-view-content code { padding: 0.1em 0.4em; }
+.ck-view-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+.ck-view-content table td,
+.ck-view-content table th {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem 0.75rem;
+}
+.ck-view-content table th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+.ck-view-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 0.5em 0;
+}
+.ck-view-content figure { margin: 1em 0; }
+
+/* Dark mode overrides */
+.dark .ck-view-content { color: #e2e8f0; }
+.dark .ck-view-content a  { color: #93c5fd; }
+.dark .ck-view-content blockquote {
+  color: #94a3b8;
+  background: rgba(59, 130, 246, 0.07);
+  border-left-color: #3b82f6;
+}
+.dark .ck-view-content pre,
+.dark .ck-view-content code {
+  background: #161625;
+  color: #a5b4fc;
+}
+.dark .ck-view-content table td,
+.dark .ck-view-content table th {
+  border-color: #424242;
+}
+.dark .ck-view-content table th {
+  background: #1e1e2e;
+}
