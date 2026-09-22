@@ -70,7 +70,8 @@ const Index = (props: InputProps & Props) => {
 
   return (
     <div className="w-full">
-      {label && (
+      {/* Yorliqni Wrapper chizadi — bu yerda takrorlanmasin */}
+      {false && label && (
         <label className="block mb-2 text-sm font-medium text-gray-700">
           {label}
         </label>

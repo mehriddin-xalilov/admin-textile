@@ -34,21 +34,24 @@ const Index = (props: Props) => {
         customRender
           ? () => (
             <div className="dark:bg-[#1d1d1d] bg-white rounded-2xl  relative z-10 textile-modal-wrapper xs:my-5 ">
-              <div className="md:p-5 p-3 bg-[#1e50e7] rounded-t-2xl textile-modal-head sticky top-0 z-[9999]">
-                <div className={`flex gap-5 justify-between`}>
-                  <Typography.Title className={"!text-white"} level={4}>
+              {/* Sarlavha: oq fon, to'q matn (marketplace uslubi) */}
+              <div className="md:px-6 md:pt-5 md:pb-4 p-4 bg-white dark:bg-[#1d1d1d] border-b border-gray-100 dark:border-gray-800 rounded-t-2xl textile-modal-head sticky top-0 z-[9999]">
+                <div className={`flex gap-5 justify-between items-start`}>
+                  <Typography.Title className={"!mb-0 !text-gray-900 dark:!text-white"} level={4}>
                     {title}
                   </Typography.Title>
-                  <div className="flex gap-5">
-                    <CloseCircleIcon
-                      className="text-white cursor-pointer w-7 h-7 min-w-7 min-h-7 hover:text-gray-300 transition-colors"
-                      // @ts-ignore
-                      onClick={onClose || onCancel}
-                    />
-                  </div>
+                  <button
+                    type="button"
+                    aria-label="Yopish"
+                    // @ts-ignore
+                    onClick={onClose || onCancel}
+                    className="w-9 h-9 -mr-1 rounded-full text-gray-400 hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center justify-center transition-colors"
+                  >
+                    <CloseCircleIcon className="w-6 h-6" />
+                  </button>
                 </div>
                 {header ? (
-                  <span className={"text-white block"}>{header}</span>
+                  <span className={"text-gray-500 dark:text-gray-400 block mt-1 text-sm"}>{header}</span>
                 ) : null}
               </div>
               <div className={`p-3 lg:p-5 ${bodyClassName}`}>{children}</div>

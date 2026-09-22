@@ -42,11 +42,11 @@ const config = {
   FONT_SIZE: 14,
   FONT_FAMILY: 'GT Walsheim Pro',
   SIDEBAR_IMAGE: 'none',
-  BORDER_RADIUS: 8,
+  BORDER_RADIUS: 12,
   SIDEBAR_GRADIENT: 'none',
   BODY_BG: 'none',
-  COLOR: '#0f766e',
-  THEME: 'system'
+  COLOR: '#2563EB',
+  THEME: 'light'
 };
 
 export default config;

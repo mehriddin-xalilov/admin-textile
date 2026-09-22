@@ -33,7 +33,7 @@ const ReadyProducts = () => {
         { name: "old_price", label: t("Eski narxi (chegirma uchun)"), component: Fields.InputPrice },
         { name: "color_name", label: t("Rang nomi"), component: Fields.Input },
         { name: "color_hex", label: t("Rang kodi (#111827)"), component: Fields.Input },
-        { name: "sizes", label: t("Razmerlar (Enter bilan qo'shing)"), component: Fields.Tags },
+        { name: "sizes", label: t("Razmerlar"), component: Fields.Tags, props: { placeholder: t("S, M, L — Enter bilan qo'shing") } },
         { name: "specs", label: t("Xususiyatlar"), type: "array", component: Fields.KeyValue },
         { name: "quantity", label: t("Qoldiq (0 = cheksiz)"), component: Fields.InputPrice },
         { name: "sold_count", label: t("Sotilgan soni (ko'rsatish uchun)"), component: Fields.InputPrice },

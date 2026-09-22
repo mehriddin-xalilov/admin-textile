@@ -49,21 +49,52 @@ const AntdProvider = ({ children }: { children: React.ReactNode }) => {
   }, [theme, fontFamily, fontSize, primaryColor]);
 
   const { antd: antdLocale } = getLocale();
+  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   return (
     <ConfigProvider
       locale={antdLocale}
       prefixCls="textile"
       theme={{
-        algorithm:
-          theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches)
-            ? antTheme.darkAlgorithm
-            : antTheme.defaultAlgorithm,
+        algorithm: isDark ? antTheme.darkAlgorithm : antTheme.defaultAlgorithm,
         token: {
           colorPrimary: primaryColor,
-          fontFamily: fontFamily,
-          fontSize: fontSize,
-          borderRadius: borderRadius,
+          fontFamily,
+          fontSize,
+          borderRadius,
+          // Marketplace uslubi: yumshoq chegaralar, keng boshqaruvlar, mayin soyalar
+          colorBgLayout: isDark ? undefined : '#F6F7F9',
+          colorBorderSecondary: isDark ? undefined : '#E9EBEF',
+          controlHeight: 40,
+          controlHeightLG: 48,
+          controlHeightSM: 32,
+          boxShadowTertiary: '0 1px 2px rgba(15, 23, 42, 0.04)',
+          colorTextHeading: isDark ? undefined : '#0F172A',
+          colorText: isDark ? undefined : '#1E293B',
+          colorTextSecondary: isDark ? undefined : '#64748B',
+          colorTextPlaceholder: isDark ? undefined : '#94A3B8',
+        },
+        components: {
+          Layout: { headerBg: isDark ? undefined : '#FFFFFF', bodyBg: isDark ? undefined : '#F6F7F9' },
+          Card: { borderRadiusLG: 16, paddingLG: 20 },
+          Table: {
+            headerBg: isDark ? undefined : '#F8FAFC',
+            headerColor: isDark ? undefined : '#64748B',
+            headerSplitColor: 'transparent',
+            borderColor: isDark ? undefined : '#EEF1F5',
+            rowHoverBg: isDark ? undefined : '#F8FAFC',
+            cellPaddingBlock: 14,
+            borderRadiusLG: 16,
+          },
+          Button: { fontWeight: 600, primaryShadow: 'none', defaultShadow: 'none', dangerShadow: 'none' },
+          Input: { paddingBlock: 8 },
+          Select: { optionSelectedBg: isDark ? undefined : '#EFF6FF' },
+          Modal: { borderRadiusLG: 20, paddingContentHorizontalLG: 24 },
+          Drawer: { paddingLG: 24 },
+          Tabs: { itemSelectedColor: primaryColor, inkBarColor: primaryColor, horizontalItemPadding: '10px 4px' },
+          Tag: { borderRadiusSM: 8, defaultBg: isDark ? undefined : '#F1F5F9' },
+          Pagination: { itemActiveBg: primaryColor },
+          Segmented: { itemSelectedBg: isDark ? undefined : '#0F172A', itemSelectedColor: '#FFFFFF', trackBg: isDark ? undefined : '#F1F5F9', borderRadius: 10 },
         },
       }}
     >
