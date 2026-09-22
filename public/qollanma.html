@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EduMakon Qo'llanma</title>
+<title>Textile — admin qo'llanmasi</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
   :root{
     --ground:#F6F7FB; --surface:#FFFFFF; --surface2:#EEF1F8;
     --ink:#131A2A; --muted:#5A6478; --line:#DFE4EF;
-    --brand:#1E50E7; --brand-ink:#16399F; --brand-soft:#E7EDFD;
+    --brand:#2563EB; --brand-ink:#16399F; --brand-soft:#E7EDFD;
     --ok:#177A4B; --ok-soft:#E2F3EA;
     --warn:#8A5A08; --warn-soft:#FBF0DC;
     --bad:#B93434; --bad-soft:#FBE7E7;
@@ -169,11 +169,11 @@
 <header class="top">
   <div class="top-in">
     <div class="brandline">
-      <span class="logo">edu<span class="dot">●</span>makon</span>
-      <span class="doc-kind">Ish qo'llanmasi</span>
+      <span class="logo">tex<span class="dot">●</span>tile</span>
+      <span class="doc-kind">Admin qo'llanmasi</span>
     </div>
-    <h1>Kirishdan to pul hisob-kitobigacha</h1>
-    <p class="lede">Parvoz o'quv markazi xodimlari uchun: tizimga kirish, kurs va guruh ochish, o'quvchi qo'shish va oylik to'lovlar qanday ishlashi — bosqichma-bosqich.</p>
+    <h1>Mahsulotdan buyurtmagacha</h1>
+    <p class="lede">Textile admin panelida ishlash tartibi: katalog to'ldirish, omborga tovar qabul qilish, tayyor mahsulot qo'yish, buyurtmani yakunlash va sayt mazmunini boshqarish.</p>
   </div>
 </header>
 
@@ -181,11 +181,15 @@
 
 <nav class="toc" aria-label="Mundarija">
   <a href="#kirish"><span class="n">1</span> Tizimga kirish <span class="d">1 daqiqa</span></a>
-  <a href="#kurs"><span class="n">2</span> Kurs yaratish <span class="d">1 daqiqa</span></a>
-  <a href="#guruh"><span class="n">3</span> Guruh yaratish va boshlash <span class="d">3 daqiqa</span></a>
-  <a href="#oquvchi"><span class="n">4</span> Guruhga o'quvchi qo'shish <span class="d">2 daqiqa</span></a>
-  <a href="#pul"><span class="n">5</span> Pullar qanday hisoblanadi <span class="d">o'qib chiqing</span></a>
-  <a href="#kundalik"><span class="n">6</span> Kundalik ish: yo'qlama va Telegram <span class="d">har dars</span></a>
+  <a href="#tushuncha"><span class="n">2</span> Ikki xil mahsulot <span class="d">o'qib chiqing</span></a>
+  <a href="#katalog"><span class="n">3</span> Katalog: kiyim qo'shish <span class="d">5 daqiqa</span></a>
+  <a href="#ombor"><span class="n">4</span> Ombor: tovar qabul qilish <span class="d">3 daqiqa</span></a>
+  <a href="#tayyor"><span class="n">5</span> Tayyor mahsulot qo'yish <span class="d">3 daqiqa</span></a>
+  <a href="#buyurtma"><span class="n">6</span> Buyurtma bilan ishlash <span class="d">har kuni</span></a>
+  <a href="#dizayn"><span class="n">7</span> Dizaynlar va konstruktor <span class="d">2 daqiqa</span></a>
+  <a href="#sharh"><span class="n">8</span> Sharhlarni tasdiqlash <span class="d">har kuni</span></a>
+  <a href="#sayt"><span class="n">9</span> Sayt mazmuni <span class="d">2 daqiqa</span></a>
+  <a href="#xodim"><span class="n">10</span> Xodimlar va ruxsatlar <span class="d">1 daqiqa</span></a>
 </nav>
 
 <!-- ================= 1. KIRISH ================= -->
@@ -193,171 +197,239 @@
   <div class="sec-head"><span class="sec-num">1</span><h2>Tizimga kirish</h2></div>
 
   <ol class="steps">
-    <li>Brauzerda <a href="https://admin.edumakon.com">admin.edumakon.com</a> ni oching.
-      <span class="why">Telefonda esa EduMakon mobil ilovasi ham bor — havolasini administratordan oling.</span></li>
-    <li><span class="ui ghost">Telefon</span> yoki <span class="ui ghost">Email</span> usulini tanlang va ma'lumotni kiriting.
-      <span class="why">Telefonni istalgan ko'rinishda yozsa bo'ladi: <span class="num">88 815 88 22</span>, <span class="num">+998 88 815 88 22</span> yoki <span class="num">998888158822</span> — hammasi qabul qilinadi.</span></li>
-    <li>Parolni kiriting va <span class="ui">Tizimga kirish</span> tugmasini bosing.</li>
+    <li>Brauzerda admin panel manzilini oching.
+      <span class="why">Manzilni rahbardan yoki dasturchidan oling. Sayt va admin panel alohida manzilda turadi.</span></li>
+    <li>Telefon raqam va parolni kiriting, <span class="ui">Tizimga kirish</span> tugmasini bosing.
+      <span class="why">Raqamni <span class="path">+998 90 123 45 67</span> ko'rinishida yozsangiz ham, faqat raqamlar bilan yozsangiz ham tizim tushunadi.</span></li>
+    <li>Chap tomonda bo'limlar ro'yxati chiqadi. Sichqonchani ustiga olib borsangiz, bo'lim nomlari ochiladi.</li>
   </ol>
-
-  <div class="note warn">
-    <span class="t">Muhim</span>
-    <p>Parolni qo'lda termang — <b>nusxalab qo'ying</b>. Parollarda kichik <span class="num">l</span> va katta <span class="num">L</span> yonma-yon kelishi mumkin, terishda adashish oson.</p>
-  </div>
 
   <div class="note brand">
-    <span class="t">Bilib qo'ying</span>
-    <p>Har bir kirish (muvaffaqiyatli ham, xato ham) tizim jurnaliga yoziladi va xavfsizlik Telegram-guruhiga xabar boradi. Xato parol bilan urinish — darhol ko'rinadi.</p>
+    <span class="t">Eslatma</span>
+    <p>Har bir xodim o'z hisobidan kirishi kerak. Siz faqat sizga ruxsat berilgan bo'limlarni ko'rasiz: masalan omborchi buyurtma holatini o'zgartira olmaydi.</p>
   </div>
 </section>
 
-<!-- ================= 2. KURS ================= -->
-<section id="kurs">
-  <div class="sec-head"><span class="sec-num">2</span><h2>Kurs yaratish</h2></div>
-  <p>Kurs — bu fan yo'nalishi (masalan, «Matematika», «Ingliz tili»). Guruh ochishdan <b>oldin</b> kursi bo'lishi kerak.</p>
+<!-- ================= 2. TUSHUNCHA ================= -->
+<section id="tushuncha">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Ikki xil mahsulot</h2></div>
 
-  <ol class="steps">
-    <li>Chap menyudan <span class="path">O'quv bo'limi → Kurslar</span> ga o'ting.</li>
-    <li><span class="ui">Qo'shish</span> tugmasini bosing.</li>
-    <li><kbd class="field">Nomi</kbd> maydoniga kurs nomini yozing — bitta, o'zbekcha. <kbd class="field">Filial</kbd>ni tanlang.
-      <span class="why">Tavsif va logo — ixtiyoriy.</span></li>
-    <li><kbd class="field">Holati</kbd>ni yoqing va <span class="ui">Saqlash</span> bosing.</li>
-  </ol>
+  <p>Saytda ikki xil tovar bor. Ular bir-biriga bog'liq emas, buyurtma ikkalasidan ham keladi.</p>
+
+  <div class="flow">
+    <div class="fbox b1"><b>Konstruktor</b> Logosiz kiyim. Mijoz 3D da o'z yozuvi yoki logotipini qo'yadi, keyin buyurtma beradi. Ombor va razmer shu yerda hisoblanadi.</div>
+    <div class="fbox b4"><b>Tayyor mahsulot</b> Allaqachon bosilgan tovar. Siz admin panelda rasm bilan kiritasiz, mijoz birdan sotib oladi.</div>
+  </div>
+
+  <div class="note warn">
+    <span class="t">Aralashtirmang</span>
+    <p>Tayyor mahsulotga 3D model ham, dizayn ham kerak emas. Konstruktordagi kiyimlar esa "Katalog → Mahsulotlar" bo'limida turadi.</p>
+  </div>
 </section>
 
-<!-- ================= 3. GURUH ================= -->
-<section id="guruh">
-  <div class="sec-head"><span class="sec-num">3</span><h2>Guruh yaratish va boshlash</h2></div>
-  <p>Guruh — o'quvchilar dars o'qiydigan asosiy birlik. Unda narx, jadval va o'qituvchi turadi. Forma alohida sahifada, 2 qadamdan iborat.</p>
+<!-- ================= 3. KATALOG ================= -->
+<section id="katalog">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Katalog: kiyim qo'shish</h2></div>
 
-  <h3>1-qadam · «Asosiy»</h3>
+  <p>Bu bo'lim konstruktor uchun. Mijoz shu kiyimlarga o'z dizaynini qo'yadi.</p>
+
   <ol class="steps">
-    <li><span class="path">O'quv bo'limi → Guruhlar</span> → <span class="ui">Qo'shish</span>.</li>
-    <li>To'ldiring: <kbd class="field">Guruh nomi</kbd>, <kbd class="field">Filial</kbd>, <kbd class="field">Kurs</kbd>, <kbd class="field">Xona</kbd>.
-      <span class="why">Ro'yxatda kerakli filial/kurs/xona bo'lmasa — maydon yonidagi «+» orqali shu yerning o'zida yaratasiz.</span></li>
-    <li><kbd class="field">Davomiyligi (oy)</kbd> va <kbd class="field">Oylik narxi</kbd>ni kiriting.
-      <span class="why">Oylik narx — pul hisob-kitobining asosi (5-bo'limga qarang).</span></li>
-    <li>Dars jadvalini belgilang: <kbd class="field">Dars grafigi</kbd>da <b>Toq kunlar</b> (du–chor–ju) yoki <b>Juft kunlar</b> (se–pay–sha)ni tanlab, boshlanish–tugash vaqtini yozing.
-      <span class="why">Nostandart jadval kerak bo'lsa, «Boshqa»ni tanlab kunlarni qo'lda belgilaysiz.</span></li>
+    <li><span class="path">Katalog → Kategoriyalar</span> da turkum yarating (Futbolkalar, Xudi, Kepkalar).</li>
+    <li><span class="path">Katalog → Ranglar</span> va <span class="path">Razmerlar</span> ro'yxatini to'ldiring.
+      <span class="why">Bir marta kiritiladi, keyin hamma mahsulotga ishlatiladi.</span></li>
+    <li><span class="path">Katalog → Mahsulotlar</span> → <span class="ui">Qo'shish</span>. Nomi, turkumi, narxi va bosma narxini yozing.
+      <span class="why">Bosma narxi mijoz logotip qo'shsa qo'shiladi.</span></li>
+    <li>Mahsulot ichida <b>Ranglar</b> qo'shing. Har bir rangga razmerlar avtomatik biriktiriladi.</li>
+    <li><b>Bosma joylari</b> ni belgilang: old, orqa, yeng. Har biri uchun eng katta o'lcham santimetrda.</li>
+    <li>Agar 3D model bo'lsa, <span class="path">Katalog → 3D modellar</span> dan tanlang.</li>
   </ol>
 
-  <h3>2-qadam · «Qo'shimcha» (ixtiyoriy)</h3>
+  <div class="note">
+    <span class="t">3D model</span>
+    <p>Model GLB faylida yuklanadi, hajmi 60 MB gacha. Yuklagandan keyin kiyim kartochkasida rasm ko'rinishi uchun bir marta rasm generatorini ishga tushirish kerak. Buning uchun saytda admin sifatida kirib <span class="path">/tools/thumbs?auto=1</span> sahifasini oching va tugashini kuting.</p>
+  </div>
+</section>
+
+<!-- ================= 4. OMBOR ================= -->
+<section id="ombor">
+  <div class="sec-head"><span class="sec-num">4</span><h2>Ombor: tovar qabul qilish</h2></div>
+
+  <p>Ombor faqat konstruktor mahsulotlari uchun yuritiladi.</p>
+
   <ol class="steps">
-    <li>O'qituvchini biriktiring: <kbd class="field">Rol</kbd> (Asosiy/Mentor), <kbd class="field">O'qituvchi</kbd>, maosh <kbd class="field">turi</kbd> va <kbd class="field">qiymati</kbd>.
-      <span class="why">O'qituvchini tanlamasangiz ham guruh saqlanadi — keyin qo'shsa bo'ladi.</span></li>
-    <li>Kerak bo'lsa <kbd class="field">Qarzga ham o'qitish</kbd>ni yoqing va <kbd class="field">To'lov kuni</kbd>ni belgilang (odatda oyning 1-kuni).</li>
-    <li><span class="ui">Saqlash</span> — guruh sahifasi ochiladi.</li>
+    <li><span class="path">Ombor → Partiyalar</span> → <span class="ui">Qo'shish</span>. Qayerdan kelgani (Turkiya, Xitoy) va sanani yozing.</li>
+    <li>Partiya ichiga qatorlar qo'shing: qaysi mahsulot, qaysi rang va razmer, nechta dona.</li>
+    <li>Tovar yetib kelgach <span class="ui">Omborga qabul qilish</span> tugmasini bosing.
+      <span class="why">Shundan keyingina qoldiq oshadi. Tugma bosilmaguncha partiya qoralama holatida turadi.</span></li>
+  </ol>
+
+  <p>Qoldiqni <span class="path">Ombor → Qoldiqlar</span> da ko'rasiz. Bitta razmer bo'yicha tuzatish kerak bo'lsa, o'sha qatordan <span class="ui">±</span> tugmasi bilan o'zgartiring va sababini yozing.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Tushuncha</th><th>Ma'nosi</th></tr></thead>
+      <tbody>
+        <tr><td>Jami</td><td>Omborda jismonan turgan dona</td></tr>
+        <tr><td>Band</td><td>Buyurtma qilingan, lekin hali jo'natilmagan</td></tr>
+        <tr><td>Mavjud</td><td>Jami minus band. Sayt shu raqamni ko'rsatadi</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note bad">
+    <span class="t">Diqqat</span>
+    <p>Buyurtma bekor qilinsa band bo'lgan dona qaytadi. Buyurtma jo'natilgan deb belgilansa, tovar ombordan butunlay chiqadi. Shuning uchun holatni to'g'ri ketma-ketlikda o'zgartiring.</p>
+  </div>
+</section>
+
+<!-- ================= 5. TAYYOR MAHSULOT ================= -->
+<section id="tayyor">
+  <div class="sec-head"><span class="sec-num">5</span><h2>Tayyor mahsulot qo'yish</h2></div>
+
+  <ol class="steps">
+    <li><span class="path">Buyurtmalar → Tayyor mahsulotlar</span> → <span class="ui">Qo'shish</span>.</li>
+    <li>Nomini uch tilda yozing. O'zbekchasi majburiy, qolganlari bo'sh qolsa ham bo'ladi.</li>
+    <li><b>Tavsif / turkum</b> maydoniga kiyim turini yozing: Futbolkalar, Kepkalar. Saytda shu bo'yicha filtr ishlaydi.</li>
+    <li>Narxini kiriting. Chegirma ko'rsatmoqchi bo'lsangiz <b>eski narx</b> ni ham yozing, sayt foizni o'zi hisoblaydi.</li>
+    <li><b>Razmerlar</b> maydoniga S, M, L deb yozib har birida Enter bosing.</li>
+    <li><b>Xususiyatlar</b> jadvaliga mato, parvarish, ishlab chiqarilgan joy kabi qatorlarni qo'shing.
+      <span class="why">Bular mahsulot sahifasida nuqtali chiziq bilan chiroyli chiqadi.</span></li>
+    <li><b>Rasmlar</b> ga bir nechta foto yuklang. Birinchisi kartochkada ko'rinadi, ikkinchisi sichqoncha ustiga kelganda almashadi.</li>
+    <li><span class="ui">Saqlash</span>. Mahsulot darhol saytda paydo bo'ladi.</li>
+  </ol>
+
+  <div class="note ok">
+    <span class="t">Maslahat</span>
+    <p>Rasm oq fonda, kiyim to'liq ko'ringan holda bo'lsa kartochka chiroyli chiqadi. Kvadrat rasm eng yaxshi natija beradi.</p>
+  </div>
+</section>
+
+<!-- ================= 6. BUYURTMA ================= -->
+<section id="buyurtma">
+  <div class="sec-head"><span class="sec-num">6</span><h2>Buyurtma bilan ishlash</h2></div>
+
+  <p>Buyurtma holatlari faqat shu tartibda o'zgaradi:</p>
+
+  <div class="flow">
+    <div class="fbox b1"><b>Yangi</b> Mijoz buyurtma berdi, to'lov kutilmoqda</div>
+    <div class="arr">→</div>
+    <div class="fbox b1"><b>Tasdiqlangan</b> Siz qabul qildingiz</div>
+    <div class="arr">→</div>
+    <div class="fbox b3"><b>Bosilmoqda</b> Bosma bajarilyapti</div>
+    <div class="arr">→</div>
+    <div class="fbox b3"><b>Tikilmoqda</b> Tikuv sexida</div>
+    <div class="arr">→</div>
+    <div class="fbox b4"><b>Tayyor</b> Jo'natishga tayyor</div>
+    <div class="arr">→</div>
+    <div class="fbox b4"><b>Jo'natildi</b> Kuryerga berildi</div>
+    <div class="arr">→</div>
+    <div class="fbox b4"><b>Yetkazildi</b> Mijoz oldi</div>
+  </div>
+
+  <ol class="steps">
+    <li><span class="path">Buyurtmalar</span> ro'yxatidan kerakligini oching.</li>
+    <li>Yuqorida mijoz ismi, telefoni va manzili turadi. Pastda nima buyurtma qilingani.</li>
+    <li>Agar dizayn bilan bo'lsa, <b>qayerga nima bosilishi</b> jadvalda yozilgan: tomoni, joyi, matn yoki logo, o'lchami santimetrda.</li>
+    <li>Ishni bajargach mos tugmani bosing. Har bir o'zgarish tarixda saqlanadi.</li>
   </ol>
 
   <div class="note warn">
-    <span class="t">Eng muhim qadam</span>
-    <p>Guruh sahifasida <span class="ui">Darslarni boshlash</span> tugmasini bosing. Aynan shu tugma jadval asosida <b>butun davr uchun darslarni yaratadi</b>. Boshlanmagan guruhda darslar ham, yo'qlama ham bo'lmaydi. Boshlangan guruhni tahrirlab bo'lmaydi — narx va jadvalni oldin tekshirib oling.</p>
+    <span class="t">Bekor qilish</span>
+    <p>Buyurtmani faqat "Tayyor" holatigacha bekor qilish mumkin. Undan keyin bekor qilib bo'lmaydi, chunki tovar allaqachon tayyorlangan.</p>
+  </div>
+
+  <p>To'lov holatini <span class="ui">To'lov</span> tugmasi orqali qo'lda ham belgilash mumkin: masalan mijoz pulni boshqa yo'l bilan to'lagan bo'lsa.</p>
+</section>
+
+<!-- ================= 7. DIZAYN ================= -->
+<section id="dizayn">
+  <div class="sec-head"><span class="sec-num">7</span><h2>Dizaynlar va konstruktor</h2></div>
+
+  <p><span class="path">Buyurtmalar → Dizaynlar</span> da mijozlar yaratgan barcha dizaynlar turadi.</p>
+
+  <ol class="steps">
+    <li>Dizaynni oching: chap tomonda kiyim ustidagi ko'rinish, o'ngda ishlab chiqarish uchun jadval.</li>
+    <li><span class="ui">3D ko'rinish</span> tugmasi bosilsa, xuddi mijoz ko'rgan holatda aylantirib ko'rasiz.</li>
+    <li><span class="ui">Konstruktorda tahrirlash</span> orqali dizaynni o'zingiz tuzatishingiz mumkin: masalan yozuv chetga chiqib qolgan bo'lsa.</li>
+    <li>Saqlangach buyurtmadagi bosma fayli ham yangilanadi.</li>
+  </ol>
+
+  <div class="note">
+    <span class="t">Shablon</span>
+    <p>Yoqqan dizaynni <span class="ui">Shablon qilish</span> tugmasi bilan saqlab qo'ysangiz, u konstruktorda hammaga namuna sifatida chiqadi.</p>
   </div>
 </section>
 
-<!-- ================= 4. O'QUVCHI ================= -->
-<section id="oquvchi">
-  <div class="sec-head"><span class="sec-num">4</span><h2>Guruhga o'quvchi qo'shish</h2></div>
+<!-- ================= 8. SHARHLAR ================= -->
+<section id="sharh">
+  <div class="sec-head"><span class="sec-num">8</span><h2>Sharhlarni tasdiqlash</h2></div>
+
+  <p>Mijoz yozgan sharh darhol saytga chiqmaydi, avval siz ko'rib chiqasiz.</p>
 
   <ol class="steps">
-    <li>Guruh sahifasida <b>O'quvchilar</b> bo'limiga o'tib, <span class="ui">O'quvchi qo'shish</span>ni bosing.</li>
-    <li>O'quvchi tizimda <b>bor bo'lsa</b> — qidiruvdan ismini yozib tanlang.</li>
-    <li><b>Yangi o'quvchi</b> bo'lsa — maydon yonidagi «+»ni bosing va anketani to'ldiring: ism, familiya, telefon.
-      <span class="why">Login va parol telefon raqamidan avtomatik to'ldiriladi. Ota-onani ham shu yerda «+» bilan qo'shsa bo'ladi.</span></li>
-    <li><kbd class="field">Boshlanish sanasi</kbd>ni tekshiring — pul hisobi aynan shu sanadan yuritiladi.</li>
-    <li>Kerak bo'lsa <kbd class="field">Shaxsiy chegirma</kbd>ni yoqing: foiz (%) yoki qat'iy summa.
-      <span class="why">Chegirma faqat shu o'quvchiga, shu guruhda amal qiladi.</span></li>
-    <li><span class="ui">Qo'shish</span> — o'quvchi guruhga kirdi va joriy oy uchun hisob avtomatik yechildi.</li>
+    <li><span class="path">Buyurtmalar → Sharhlar</span> bo'limini oching, <span class="ui">Kutilmoqda</span> filtrini tanlang.</li>
+    <li>Matnni o'qing. To'g'ri bo'lsa <span class="ui">Tasdiqlash</span>, haqoratli yoki reklama bo'lsa <span class="ui">Rad etish</span>.</li>
+    <li>Kerak bo'lsa <span class="ui">Javob</span> yozing. Javob saytda do'kon nomidan chiqadi.</li>
   </ol>
+
+  <div class="note brand">
+    <span class="t">Qoida</span>
+    <p>Sharhni faqat shu mahsulotni buyurtma qilgan mijoz yoza oladi va bir mahsulotga bir marta. Shuning uchun soxta sharh kelmaydi.</p>
+  </div>
 </section>
 
-<!-- ================= 5. PUL ================= -->
-<section id="pul">
-  <div class="sec-head"><span class="sec-num">5</span><h2>Pullar qanday hisoblanadi</h2></div>
+<!-- ================= 9. SAYT ================= -->
+<section id="sayt">
+  <div class="sec-head"><span class="sec-num">9</span><h2>Sayt mazmuni</h2></div>
 
-  <p>Tizimda bitta oddiy qonun bor: <b>to'lov — faqat oylik</b>. Hamma narsa guruhning <kbd class="field">Oylik narxi</kbd> va <kbd class="field">To'lov kuni</kbd> atrofida aylanadi. Pul markazда <b>naqd</b> qabul qilinadi, tizim esa hisob-kitob va qarzni yuritadi.</p>
-
-  <h3>Balans — butun tizimning yuragi</h3>
-  <div class="flow">
-    <div class="fbox b1"><b>1 · Hisob yechildi</b>Oy boshida (yoki qo'shilganda) o'quvchidan oylik summa hisoblanadi</div>
-    <span class="arr">→</span>
-    <div class="fbox b2"><b>2 · Balans minusga tushdi</b>Bu — qarz. Masalan: <span class="num">−403 226</span> so'm</div>
-    <span class="arr">→</span>
-    <div class="fbox b3"><b>3 · Naqd to'lov</b>O'quvchi (ota-ona) markazga naqd olib keladi</div>
-    <span class="arr">→</span>
-    <div class="fbox b4"><b>4 · Balans to'ldirildi</b>Admin summani kiritadi, balans <span class="num">0</span> — qarz yopildi</div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Bo'lim</th><th>Nimani boshqaradi</th></tr></thead>
+      <tbody>
+        <tr><td>Sayt → Bannerlar</td><td>Bosh sahifadagi katta rasm, sarlavha, matn va tugma. Bir nechta banner qo'ysangiz aylanib turadi</td></tr>
+        <tr><td>Sayt → Sahifalar</td><td>Biz haqimizda, Aloqa, Ommaviy oferta kabi matnli sahifalar. Uch tilda</td></tr>
+        <tr><td>Sayt → Aloqa</td><td>Telefon, Telegram, Instagram, manzil va ish vaqti. Saytning pastki qismida chiqadi</td></tr>
+        <tr><td>Katalog → Logolar</td><td>Konstruktordagi tayyor ikon va belgilar</td></tr>
+        <tr><td>Katalog → Trend so'zlar</td><td>Konstruktorda bir bosishda qo'yiladigan tayyor yozuvlar</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="note ok">
-    <span class="t">Naqd pulni qanday kiritish</span>
-    <p>O'quvchining sahifasini oching (<span class="path">Foydalanuvchilar → O'quvchilar</span> → ismi) va balans kartasidagi <span class="ui">+ Balans to'ldirish</span> orqali olingan summani kiriting. Shu zahoti qarz kamayadi va «to'ladi» holatiga o'tadi.</p>
-  </div>
-
-  <h3>Oy o'rtasida qo'shilsa — kunlab hisoblanadi (real misol)</h3>
-  <p>To'liq oy o'qimagan o'quvchidan to'liq oylik olinmaydi — qolgan kunlarga <b>proporsional</b> hisoblanadi:</p>
-  <div class="calc">
-    <div class="row"><span>Guruh oylik narxi</span><span class="v">500 000 so'm</span></div>
-    <div class="row"><span>To'lov davri</span><span class="v">01.09 – 30.09</span></div>
-    <div class="row"><span>O'quvchi qo'shilgan sana</span><span class="v">07.09</span></div>
-    <div class="row"><span>Formulа</span><span class="v">narx × qolgan kunlar ÷ davr kunlari</span></div>
-    <div class="row total"><span>Sentyabr uchun hisob</span><span class="v bad">−403 226 so'm</span></div>
-  </div>
-  <p class="muted">Keyingi oylardan boshlab to'liq <span class="num">500 000</span> so'mdan hisoblanadi. Shaxsiy chegirma bo'lsa, avval chegirma ayirilib, keyin shu qoida qo'llanadi.</p>
-
-  <h3>Kim to'ladi, kim to'lamadi — qayerda ko'rinadi</h3>
-  <div class="tablewrap"><table>
-    <tr><th>Qayerda</th><th>Nima ko'rinadi</th></tr>
-    <tr><td><b>Bosh sahifa (admin)</b></td><td>«Qarzdorlar» ro'yxati — kimda qancha qarz borligi</td></tr>
-    <tr><td><b>Mobil ilova → Guruhlar</b></td><td>Guruhga bossangiz: har o'quvchi yonida <b style="color:var(--ok)">To'ladi ✓</b> yoki <b style="color:var(--bad)">To'lamadi</b> (qarzi bilan), to'lamaganlar tepada</td></tr>
-    <tr><td><b>O'quvchi sahifasi</b></td><td>Balansi va barcha to'lov tarixi</td></tr>
-    <tr><td><b>Moliya → Tranzaksiyalar</b></td><td>Markaz bo'yicha barcha pul harakatlari</td></tr>
-  </table></div>
-
-  <h3>O'quvchi guruhdan ketsa</h3>
-  <p>Guruhdan chiqarishda tizim ikkita variantni so'raydi: <b>pul qaytarilsin</b> — o'qilmagan kunlar puli kunlab hisoblanib balansga qaytadi, yoki <b>qaytarilmasin</b>. Darslar boshlangan o'quvchini o'chirib bo'lmaydi — faqat guruhdan chiqariladi (tarix saqlanadi).</p>
-
-  <h3>O'qituvchi maoshi</h3>
-  <p>Maosh <b>oyiga bir marta</b> hisoblanadi. Turi guruhda o'qituvchini biriktirishda tanlanadi:</p>
-  <div class="tablewrap"><table>
-    <tr><th>Turi</th><th>Qanday hisoblanadi</th><th>Misol</th></tr>
-    <tr><td><b>Foiz</b></td><td>Shu oy guruhdan tushgan to'lovlarning foizi</td><td class="num">tushum 5 mln × 30% = 1,5 mln</td></tr>
-    <tr><td><b>Qat'iy (fiks)</b></td><td>Oyiga belgilangan summa, tushumga bog'liq emas</td><td class="num">3 000 000 so'm/oy</td></tr>
-    <tr><td><b>Dars boshiga</b></td><td>Oydagi o'tilgan darslar soni × summa</td><td class="num">13 dars × 100 000 = 1,3 mln</td></tr>
-  </table></div>
-  <p>Hisoblangan maosh «kutilmoqda»ga tushadi; to'lash (to'liq yoki qisman) admin tomonidan qayd etiladi — o'qituvchi o'z ilovasida <b>Kutilmoqda / Shu oy olindi</b> summalarini ko'rib turadi.</p>
-
-  <div class="note bad">
-    <span class="t">Esda tuting</span>
-    <p>Tizim pulni <b>o'zi yechib olmaydi</b> — karta ulanmagan, avto-to'lov yo'q. Barcha haqiqiy pul harakati naqd bo'lib, tizimda faqat <b>qayd</b> etiladi. Shuning uchun har naqd to'lovni balansga kiritish — majburiy odat.</p>
+    <span class="t">Rasm o'lchami</span>
+    <p>Banner uchun eni kamida 1200 piksel bo'lgan rasm tanlang, aks holda katta ekranda xira ko'rinadi.</p>
   </div>
 </section>
 
-<!-- ================= 6. KUNDALIK ================= -->
-<section id="kundalik">
-  <div class="sec-head"><span class="sec-num">6</span><h2>Kundalik ish: yo'qlama va Telegram</h2></div>
+<!-- ================= 10. XODIMLAR ================= -->
+<section id="xodim">
+  <div class="sec-head"><span class="sec-num">10</span><h2>Xodimlar va ruxsatlar</h2></div>
 
-  <h3>Yo'qlama olish (har dars, 10 soniya)</h3>
   <ol class="steps">
-    <li>Guruh sahifasidagi <b>Davomat</b> bo'limida (yoki mobil ilovada <b>Darslar</b>da) bugungi darsni bosing.</li>
-    <li>Ro'yxat ochilganda hamma <b style="color:var(--ok)">Keldi</b> deb turadi — faqat kelmaganlarga <b style="color:var(--bad)">Kelmadi</b> yoki <b style="color:var(--warn)">Sababli</b>ni bosing.</li>
-    <li><span class="ui">Saqlash</span> — oyna ochiq qoladi, xato bo'lsa shu yerning o'zida to'g'irlab yana saqlaysiz.</li>
+    <li><span class="path">Foydalanuvchilar</span> bo'limida yangi xodim qo'shing: ism, telefon, parol.</li>
+    <li>Unga rol bering. Rol nimaga ruxsat berishini <span class="path">Sozlamalar → Rollar</span> da ko'rish va o'zgartirish mumkin.</li>
   </ol>
 
-  <h3>Telegram xabarlari</h3>
-  <div class="tablewrap"><table>
-    <tr><th>Kimga</th><th>Nima boradi</th><th>Qanday ulanadi</th></tr>
-    <tr><td><b>Ota-ona / o'quvchi</b></td><td>Davomat: «✅ Keldi / ❌ Kelmadi» — yo'qlama saqlangan zahoti</td><td>O'quvchi (yoki ota-ona) sahifasida <span class="ui ghost">Telegramga ulash</span> → QR kodni skanerlab botда <b>Start</b> bosadi</td></tr>
-    <tr><td><b>Rahbariyat guruhi</b></td><td>Kirish auditi: kim kirdi, xato urinishlar, bloklangan hisoblar</td><td>Guruhga <b>@edumakonbot</b> qo'shilib, guruhda <span class="num">/audit</span> deb yoziladi</td></tr>
-  </table></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Rol</th><th>Odatda nima qiladi</th></tr></thead>
+      <tbody>
+        <tr><td>Super admin</td><td>Hamma narsa</td></tr>
+        <tr><td>Menejer</td><td>Katalog, tayyor mahsulot, buyurtma, sharhlar</td></tr>
+        <tr><td>Omborchi</td><td>Partiya qabul qilish, qoldiq tuzatish</td></tr>
+        <tr><td>Operator</td><td>Buyurtmalarni ko'rish va holatini o'zgartirish</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <div class="note brand">
+  <div class="note bad">
     <span class="t">Xavfsizlik</span>
-    <p>Shubhali urinishni ko'rsangiz: <span class="path">Sozlamalar → Kirish tarixi</span>da o'sha foydalanuvchi yonidagi <span class="ui">Bloklash</span> tugmasi bilan kirishini bir zumda to'xtatasiz (faqat bosh administratorga ko'rinadi).</p>
+    <p>Boshlang'ich parolni birinchi kirgandan keyin almashtiring. Bitta hisobdan bir necha kishi foydalanmasin: kim nima qilgani tarixda ko'rinib turadi.</p>
   </div>
 </section>
 
 <div class="foot">
-  EduMakon · Parvoz o'quv markazi uchun ichki qo'llanma · Savollar bo'lsa bosh administratorga murojaat qiling. Parollar bu hujjatda keltirilmaydi — ular shaxsan beriladi.
+  Savol tug'ilsa yoki biror narsa ishlamasa, dasturchiga murojaat qiling. Qo'llanma tizim o'zgarganda yangilanadi.
 </div>
 
 </div>
