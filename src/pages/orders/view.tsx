@@ -143,7 +143,7 @@ const OrderView = () => {
                     <span>
                       {v}{r.design_id && <Link to={`/designs/view/${r.design_id}`} className="ml-2 text-xs">#{r.design_id}</Link>}
                       {(get(r, "design.summary", []) as any[]).map((s, i) => (
-                        <div key={i} className="text-xs text-gray-500">{s.side === "back" ? t("Orqa") : t("Old")} · {s.area}: {s.label}{s.size_cm ? ` (${s.size_cm})` : ""}</div>
+                        <div key={i} className="text-xs text-gray-500">{({ back: t("Orqa"), left_sleeve: t("Chap yeng"), right_sleeve: t("O'ng yeng") } as any)[s.side] || t("Old")} ({s.area}): {s.label}{s.size_cm ? ` · ${s.size_cm}` : ""}{s.pos_cm ? ` · ${s.pos_cm}` : ""}</div>
                       ))}
                     </span>
                   ) },

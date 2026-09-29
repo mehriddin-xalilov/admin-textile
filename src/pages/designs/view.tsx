@@ -121,10 +121,11 @@ const DesignView = () => {
                 dataSource={get(d, "summary", []) as any[]}
                 columns={[
                   { title: t("Tomon"), dataIndex: "side", render: (v) => PRODUCT_SIDES.find((p) => p.value === v)?.label || v },
-                  { title: t("Joy"), dataIndex: "area" },
+                  { title: t("Bosma maydoni"), dataIndex: "area" },
                   { title: t("Tur"), dataIndex: "type", render: (v) => <Tag color={v === "text" ? "blue" : "purple"}>{v === "text" ? t("Yozuv") : t("Logo")}</Tag> },
                   { title: t("Nima"), dataIndex: "label" },
                   { title: t("O'lcham"), dataIndex: "size_cm", render: (v) => v || "—" },
+                  { title: t("Joylashuv (markaz: chapdan / yuqoridan)"), dataIndex: "pos_cm", render: (v) => v || "—" },
                 ]}
               />
             </Panel>
