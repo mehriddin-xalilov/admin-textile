@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import { get } from "lodash";
+import config from "../../../config";
 
 /**
  * 3D konstruktorni (web-3d) ko'rish rejimida iframe qilib, dizaynni postMessage bilan uzatadi.
- * URL: VITE_DESIGNER_URL (default http://localhost:5174). Aylantirish/zoom iframe ichida ishlaydi.
+ * URL: config.DESIGNER_URL (domen bo'yicha: admin.motex.uz → motex.uz). Aylantirish/zoom iframe ichida ishlaydi.
  */
-const DESIGNER_URL = (import.meta.env.VITE_DESIGNER_URL as string) || "http://localhost:5174";
+const DESIGNER_URL = config.DESIGNER_URL;
 
 const Design3D: React.FC<{ design: any; height?: number }> = ({ design, height = 520 }) => {
   const ref = useRef<HTMLIFrameElement>(null);

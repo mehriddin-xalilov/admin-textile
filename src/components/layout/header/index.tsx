@@ -31,7 +31,7 @@ import {
 } from "../../../assets/icon/components/solar-line-duotone-icons/index.tsx";
 import LogoDark from "../../../assets/images/logo-dark.svg";
 import LogoLight from "../../../assets/images/logo-light.svg";
-import { useResolvedTheme } from "../../../hooks";
+import { useGet, useResolvedTheme } from "../../../hooks";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import { useStore } from "../../../services/index.ts";
 import Language from "../language/index.tsx";
@@ -78,40 +78,14 @@ const Header = () => {
   const [isFullscreen, setIsFullscreen] = React.useState(false);
   const [isHeaderHidden, setIsHeaderHidden] = React.useState(false);
   const lastScrollY = React.useRef(0);
-  const [notifications, setNotifications] = React.useState([
-    {
-      id: 1,
-      type: 'payment',
-      title: "Yangi to'lov",
-      description: "Aliyev Ali 500,000 UZS to'ladi",
-      time: dayjs().subtract(5, 'minute').toISOString(),
-      read: false
-    },
-    {
-      id: 2,
-      type: 'student',
-      title: "Yangi ro'yxatdan o'tish",
-      description: "Sobirov Vali yangi o'quvchi sifatida qo'shildi",
-      time: dayjs().subtract(1, 'hour').toISOString(),
-      read: false
-    },
-    {
-      id: 3,
-      type: 'system',
-      title: "Tizim yangilanishi",
-      description: "CRM tizimi v1.2.0 versiyasiga yangilandi",
-      time: dayjs().subtract(5, 'hour').toISOString(),
-      read: true
-    },
-    {
-      id: 4,
-      type: 'payment',
-      title: "To'lov tasdiqlanmadi",
-      description: "Karimov Omonning to'lovi bekor qilindi",
-      time: dayjs().subtract(1, 'day').toISOString(),
-      read: true
-    }
-  ]);
+  // Haqiqiy bildirishnomalar: API dan har daqiqada; "o'qilgan" id lar brauzerda saqlanadi
+  const READ_KEY = 'tx_notif_read';
+  const readRead = (): string[] => { try { return JSON.parse(localStorage.getItem(READ_KEY) || '[]'); } catch { return []; } };
+  const [readIds, setReadIds] = React.useState<string[]>(readRead);
+  const { data: notifData } = useGet({ name: 'notifications', url: '/notifications', queryOptions: { refetchInterval: 60_000, retry: false } as any }) as any;
+  const notifications: { id: string; type: string; title: string; description: string; time: string; link?: string; read: boolean }[] =
+    ((notifData?.data ?? notifData) || []).map((n: any) => ({ ...n, read: readIds.includes(n.id) }));
+  const saveRead = (ids: string[]) => { setReadIds(ids); try { localStorage.setItem(READ_KEY, JSON.stringify(ids.slice(-300))); } catch { /* xotira yopiq */ } };
 
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -186,26 +160,26 @@ const Header = () => {
 
   const markAllAsRead = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setNotifications(prev => prev.map(n => ({ ...n, read: true })));
+    saveRead([...new Set([...readIds, ...notifications.map((n) => n.id)])]);
   };
 
-  const clearAll = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setNotifications([]);
+  const markAsRead = (n: { id: string; link?: string }) => {
+    if (!readIds.includes(n.id)) saveRead([...readIds, n.id]);
+    if (n.link) { setOpenNotifications(false); navigate(n.link); }
   };
-
-  const markAsRead = (id: number) => {
-    setNotifications(prev => prev.map(n => n.id === id ? { ...n, read: true } : n));
-  }
 
   const getNotificationIcon = (type: string) => {
     switch (type) {
+      case 'lead':
       case 'organization':
         return <div className="w-10 h-10 rounded-xl bg-orange-500 bg-opacity-20 dark:bg-orange-500 dark:bg-opacity-30 flex items-center justify-center text-orange-600 dark:text-orange-400"><Buildings2Icon className="!text-white" width={22} height={22} /></div>
+      case 'order':
       case 'payment':
         return <div className="w-10 h-10 rounded-xl bg-emerald-500 bg-opacity-20 dark:bg-emerald-500 dark:bg-opacity-30 flex items-center justify-center text-emerald-600 dark:text-emerald-400"><WalletMoneyIcon className="!text-white" width={22} height={22} /></div>
+      case 'user':
       case 'student':
         return <div className="w-10 h-10 rounded-xl bg-blue-500 bg-opacity-20 dark:bg-blue-500 dark:bg-opacity-30 flex items-center justify-center text-blue-600 dark:text-blue-400"><UserCircleIcon className="!text-white" width={22} height={22} /></div>
+      case 'review':
       case 'system':
         return <div className="w-10 h-10 rounded-xl bg-amber-500 bg-opacity-20 dark:bg-amber-500 dark:bg-opacity-30 flex items-center justify-center text-amber-600 dark:text-amber-400"><InfoCircleIcon className="!text-white" width={22} height={22} /></div>
       default:
@@ -215,9 +189,13 @@ const Header = () => {
 
   const getNotificationTitleColor = (type: string) => {
     switch (type) {
+      case 'order':
       case 'payment': return 'text-emerald-600 dark:text-emerald-400';
+      case 'user':
       case 'student': return 'text-blue-600 dark:text-blue-400';
+      case 'review':
       case 'system': return 'text-amber-600 dark:text-amber-400';
+      case 'lead':
       case 'organization': return 'text-orange-600 dark:text-orange-400'; // Added organization title color
       default: return '';
     }
@@ -382,7 +360,7 @@ const Header = () => {
                 notifications.map((n) => (
                   <div
                     key={n.id}
-                    onClick={() => markAsRead(n.id)}
+                    onClick={() => markAsRead(n)}
                     className={`px-2 py-2.5 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer rounded-xl transition-all duration-200 relative overflow-hidden group
                       ${!n.read ? 'bg-blue-50 bg-opacity-70 dark:bg-blue-500 dark:bg-opacity-10' : 'hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:bg-opacity-50'}
                     `}
@@ -414,7 +392,7 @@ const Header = () => {
               )}
             </div>
             {notifications.length > 0 && (
-              <Button type="link" block className="!text-[13px] h-8 font-semibold hover:bg-blue-50 dark:hover:bg-blue-500 dark:hover:bg-opacity-5">
+              <Button type="link" block onClick={() => { setOpenNotifications(false); navigate('/orders'); }} className="!text-[13px] h-8 font-semibold hover:bg-blue-50 dark:hover:bg-blue-500 dark:hover:bg-opacity-5">
                 {t("Barchasini ko'rish")}
               </Button>
             )}

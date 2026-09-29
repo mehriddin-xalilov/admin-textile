@@ -1,3 +1,4 @@
+import config from "../../../config";
 import { Descriptions, Table as AntTable, Tag } from "antd";
 import { get } from "lodash";
 import { Link } from "react-router-dom";
@@ -54,7 +55,7 @@ const DesignView = () => {
           subtitle: `${get(d, "product.name", "")} · ${get(d, "product_color.color.name", "")}`,
           extra: (
             <div className="flex gap-2">
-              <a href={`${(import.meta.env.VITE_DESIGNER_URL as string) || "http://localhost:5174"}/studio?design=${id}#token=${storage.get("token")}`} target="_blank" rel="noreferrer">
+              <a href={`${config.DESIGNER_URL}/studio?design=${id}#token=${storage.get("token")}`} target="_blank" rel="noreferrer">
                 <Button type="primary">{t("Konstruktorda tahrirlash")}</Button>
               </a>
               <Button loading={isSaving} type={get(d, "is_template") ? "default" : "primary"} onClick={toggleTemplate}>

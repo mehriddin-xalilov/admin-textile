@@ -55,6 +55,17 @@ function resolveApiRoot(): string {
   return (fromEnv || 'http://127.0.0.1:8200/api/v1/admin').replace(/\/$/, '')
 }
 
+/** Mijoz sayti (3D konstruktor): admin.motex.uz → motex.uz. Lokalda VITE_DESIGNER_URL. */
+function resolveDesignerUrl(): string {
+  const host = typeof window !== 'undefined' ? window.location.hostname : ''
+  const isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(host)
+  if (!isLocal && host) {
+    const siteHost = /\.nip\.io$/.test(host) ? host.replace(/^admin-textile\./, 'textile.') : host.replace(/^admin\./, '')
+    return `${window.location.protocol}//${siteHost}`
+  }
+  return ((import.meta.env.VITE_DESIGNER_URL as string) || 'http://localhost:5174').replace(/\/$/, '')
+}
+
 const rawRoot = resolveApiRoot()
 const API_V1_ROOT = rawRoot.replace(/\/admin\/?$/, '')
 
@@ -63,6 +74,8 @@ const config = {
   API_ROOT: rawRoot,
   /** `.../api/v1` — o'z-o'zidan balans to'ldirish (v1/payment/...) */
   API_V1_ROOT,
+  /** 3D konstruktor (mijoz sayti) manzili */
+  DESIGNER_URL: resolveDesignerUrl(),
   API_LANGUAGES: API_LANGUAGES,
   FONT_SIZE: 14,
   FONT_FAMILY: 'GT Walsheim Pro',
