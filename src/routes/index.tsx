@@ -42,6 +42,7 @@ import Orders from "../pages/orders";
 import OrderView from "../pages/orders/view";
 import Designs from "../pages/designs";
 import Reviews from "../pages/reviews";
+import B2bLeads from "../pages/b2b-leads";
 import DesignView from "../pages/designs/view";
 
 // ─── Standalone ──────────────────────────────────────────────────────────────
@@ -71,6 +72,7 @@ export const useRoutes = () => {
         { path: '/designs', title: "Dizaynlar", permissions: ['designs.list'] },
         { path: '/ready-products', title: "Tayyor mahsulotlar", permissions: ['ready-products.list'] },
         { path: '/reviews', title: "Sharhlar", permissions: ['reviews.list'] },
+        { path: '/b2b-leads', title: "B2B lidlar", permissions: ['b2b-leads.list'] },
       ]
     },
     {
@@ -116,6 +118,7 @@ export const useRoutes = () => {
     { path: "/designs", element: <Designs />, permissions: ['designs.list'] },
     { path: "/ready-products", element: <ReadyProducts />, permissions: ['ready-products.list'] },
     { path: "/reviews", element: <Reviews />, permissions: ['reviews.list'] },
+    { path: "/b2b-leads", element: <B2bLeads />, permissions: ['b2b-leads.list'] },
     { path: "/designs/view/:id", element: <DesignView />, permissions: ['designs.view'] },
 
     { path: "/products", element: <Products />, permissions: ['products.list'] },
