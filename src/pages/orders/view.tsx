@@ -12,7 +12,7 @@ import { ORDER_STATUSES, PAYMENT_METHODS, PAYMENT_STATUSES, statusColor, statusL
 import Design3D from "../../components/design-3d";
 
 const OrderView = () => {
-  const { t, params, queryClient } = useHooks();
+  const { t, params, queryClient, navigate } = useHooks();
   const { isUpdate } = useAccess("orders");
   const id = get(params, "id");
   const { data, isLoading } = useGet({ url: `/orders/${id}`, name: "orders", queryOptions: { enabled: !!id } });
@@ -137,6 +137,8 @@ const OrderView = () => {
                 pagination={false}
                 rowKey="id"
                 dataSource={get(o, "items", []) as any[]}
+                rowClassName={(r: any) => (r.design_id ? "cursor-pointer" : "")}
+                onRow={(r: any) => ({ onClick: (e) => { if (r.design_id && !(e.target as HTMLElement).closest("a")) navigate(`/designs/view/${r.design_id}`); } })}
                 columns={[
                   { title: t("Dizayn"), width: 80, render: (_, r) => get(r, "design.preview.src")
                     ? <Link to={`/designs/view/${r.design_id}`} title={t("Dizaynni ochish")}><img src={get(r, "design.preview.src")} width={48} className="rounded hover:opacity-80 transition" alt="" /></Link>
