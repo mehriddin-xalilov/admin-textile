@@ -29,13 +29,38 @@ const API_LANGUAGES = [
 ];
 
 
-/** Admin API: .../api/v1/admin. Client API (sayt/mobil) — /admin siz. */
-const rawRoot = (import.meta.env.VITE_API_ROOT as string) || ''
+/**
+ * Admin API: .../api/v1/admin. Client API (sayt/mobil) — /admin siz.
+ *
+ * Manzil ish vaqtida aniqlanadi: panel qaysi domenda ochilgan bo'lsa, API ham
+ * o'sha domenning `api.` subdomenidan olinadi. Domen o'zgarsa qayta build shart emas.
+ */
+function resolveApiRoot(): string {
+  const injected = typeof window !== 'undefined' ? (window as any).__API_ROOT : undefined
+  if (injected) return String(injected).replace(/\/$/, '')
+
+  const fromEnv = (import.meta.env.VITE_API_ROOT as string) || ''
+  const host = typeof window !== 'undefined' ? window.location.hostname : ''
+  const isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(host)
+
+  if (!isLocal && host) {
+    // admin.motex.uz → api.motex.uz | admin-textile.<ip>.nip.io → api-textile.<ip>.nip.io
+    const apiHost = /\.nip\.io$/.test(host)
+      ? host.replace(/^admin-textile\./, 'api-textile.')
+      : `api.${host.replace(/^admin\./, '')}`
+
+    return `${window.location.protocol}//${apiHost}/api/v1/admin`
+  }
+
+  return (fromEnv || 'http://127.0.0.1:8200/api/v1/admin').replace(/\/$/, '')
+}
+
+const rawRoot = resolveApiRoot()
 const API_V1_ROOT = rawRoot.replace(/\/admin\/?$/, '')
 
 const config = {
   DEFAULT_LANGUAGE: 'uz',
-  API_ROOT: import.meta.env.VITE_API_ROOT,
+  API_ROOT: rawRoot,
   /** `.../api/v1` — o'z-o'zidan balans to'ldirish (v1/payment/...) */
   API_V1_ROOT,
   API_LANGUAGES: API_LANGUAGES,
