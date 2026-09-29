@@ -189,7 +189,7 @@ const AuthPage: React.FC = () => {
 
             {/* Logo */}
             <div className="relative z-10">
-              <img src={LogoLight} alt="Textile" className="h-10 object-contain" onError={(e) => {
+              <img src={LogoLight} alt="Motex" className="h-10 object-contain" onError={(e) => {
                 const el = e.currentTarget as HTMLImageElement;
                 el.style.display = "none";
                 const fallback = el.nextElementSibling as HTMLElement;
@@ -238,13 +238,13 @@ const AuthPage: React.FC = () => {
               <div className="flex justify-center lg:justify-start mb-7">
                 <img
                   src={LogoDark}
-                  alt="Textile"
+                  alt="Motex"
                   className="h-9 object-contain dark:hidden"
                   onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
                 />
                 <img
                   src={LogoLight}
-                  alt="Textile"
+                  alt="Motex"
                   className="h-9 object-contain hidden dark:block"
                   onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
                 />
