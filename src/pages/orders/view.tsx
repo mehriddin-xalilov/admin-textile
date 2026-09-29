@@ -1,4 +1,4 @@
-import { Descriptions, Image, Popconfirm, Select, Table as AntTable, Tag, Timeline } from "antd";
+import { Descriptions, Popconfirm, Select, Table as AntTable, Tag, Timeline } from "antd";
 import dayjs from "dayjs";
 import { get } from "lodash";
 import React from "react";
@@ -138,10 +138,12 @@ const OrderView = () => {
                 rowKey="id"
                 dataSource={get(o, "items", []) as any[]}
                 columns={[
-                  { title: t("Dizayn"), width: 80, render: (_, r) => get(r, "design.preview.src") ? <Image src={get(r, "design.preview.src")} width={48} className="rounded" /> : <span className="text-gray-400">{t("Logosiz")}</span> },
+                  { title: t("Dizayn"), width: 80, render: (_, r) => get(r, "design.preview.src")
+                    ? <Link to={`/designs/view/${r.design_id}`} title={t("Dizaynni ochish")}><img src={get(r, "design.preview.src")} width={48} className="rounded hover:opacity-80 transition" alt="" /></Link>
+                    : <span className="text-gray-400">{t("Logosiz")}</span> },
                   { title: t("Mahsulot"), dataIndex: "product_name", render: (v, r) => (
                     <span>
-                      {v}{r.design_id && <Link to={`/designs/view/${r.design_id}`} className="ml-2 text-xs">#{r.design_id}</Link>}
+                      {r.design_id ? <Link to={`/designs/view/${r.design_id}`} className="font-medium">{v}</Link> : v}{r.design_id && <Link to={`/designs/view/${r.design_id}`} className="ml-2 text-xs">#{r.design_id}</Link>}
                       {(get(r, "design.summary", []) as any[]).map((s, i) => (
                         <div key={i} className="text-xs text-gray-500">{({ back: t("Orqa"), left_sleeve: t("Chap yeng"), right_sleeve: t("O'ng yeng") } as any)[s.side] || t("Old")} ({s.area}): {s.label}{s.size_cm ? ` · ${s.size_cm}` : ""}{s.pos_cm ? ` · ${s.pos_cm}` : ""}</div>
                       ))}
